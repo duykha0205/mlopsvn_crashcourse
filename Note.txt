@@ -1,0 +1,13 @@
+airflow docker compose for platform:
+volumes:
+    - ./run_env/dags:/opt/airflow/dags
+    - ./run_env/logs:/opt/airflow/logs
+    - ./run_env/plugins:/opt/airflow/plugins
+
+    - /var/run/docker.sock:/var/run/docker.sock
+  # user: "${AIRFLOW_UID:-50000}:0"
+ user: root 
+
+-----
+# MLFLOW_TRACKING_URI="http://host.docker.internal:5000"
+MLFLOW_TRACKING_URI="http://172.26.119.215:5000"
