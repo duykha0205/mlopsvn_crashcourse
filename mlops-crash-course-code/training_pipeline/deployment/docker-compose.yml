@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  kha:
+    image: mlopsvn/mlops_crash_course/training_pipeline:latest
+    # container_name: khaa_service
+    ports:
+        - 2088:2088

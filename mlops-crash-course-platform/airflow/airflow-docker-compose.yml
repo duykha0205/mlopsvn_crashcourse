@@ -62,7 +62,8 @@ x-airflow-common:
     - ./run_env/dags:/opt/airflow/dags
     - ./run_env/logs:/opt/airflow/logs
     - ./run_env/plugins:/opt/airflow/plugins
-  user: "${AIRFLOW_UID:-50000}:0"
+    - /var/run/docker.sock:/var/run/docker.sock
+  user: "root"
   depends_on:
     &airflow-common-depends-on
     postgres:

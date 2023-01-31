@@ -14,6 +14,7 @@ class AppPath:
     TRAINING_PIPELINE_DIR = MLOPS_CRASH_COURSE_CODE_DIR / "training_pipeline"
     FEATURE_REPO = TRAINING_PIPELINE_DIR / "feature_repo"
     ARTIFACTS = TRAINING_PIPELINE_DIR / "artifacts"
+    # docker_soc = Path("/var/run/docker.sock")
 
 
 class DefaultConfig:
@@ -42,5 +43,13 @@ class DefaultConfig:
                 target="/training_pipeline/artifacts",
                 type="bind",
             ),
+            
+            # test docker soc
+            # Mount(
+            #     source=AppPath.docker_soc.absolute().as_posix(),
+            #     target="/var/run/docker.sock",
+            #     type="bind",
+            # ),
         ],
+        "extra_hosts": ["host.docker.internal:host-gateway"],
     }
